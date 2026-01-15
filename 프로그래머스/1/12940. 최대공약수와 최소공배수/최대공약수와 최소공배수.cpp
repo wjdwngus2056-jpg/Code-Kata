@@ -5,13 +5,27 @@ using namespace std;
 
 int GCD(int a, int b)
 {
-    if(a%b == 0)
+    if (a >= b)
     {
-        return b;
+        if(a%b == 0)
+        {
+            return b;
+        }
+        else
+        {
+            return GCD(b, a%b);
+        }
     }
     else
     {
-        return GCD(b, a%b);
+        if (b%a == 0)
+        {
+            return a;
+        }
+        else
+        {
+            return GCD(a, b%a);
+        }
     }
 }
 
@@ -19,7 +33,7 @@ vector<int> solution(int n, int m) {
     vector<int> answer;
     int gcd, lcm;
     
-    n >= m ? gcd = GCD(n, m) : gcd = GCD(m, n);
+    gcd = GCD(n, m);
     lcm = n*m/gcd;
     
     answer.push_back(gcd);
