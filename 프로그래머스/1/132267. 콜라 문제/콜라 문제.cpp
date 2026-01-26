@@ -8,8 +8,8 @@ int solution(int a, int b, int n) {
     
     while (n >= a)
     {
-        answer += n / a * b;
-        n = (n / a * b) + (n % a);
+        answer += b * (n / a);
+        n = (b * (n / a)) + (n % a);
     }
     
     return answer;
