@@ -1,24 +1,20 @@
 #include <string>
 #include <vector>
-#include <algorithm>
+#include <queue>
 
 using namespace std;
 
 vector<int> solution(int k, vector<int> score) {
     vector<int> answer;
-    vector<int> HOF;
-    
-    for (size_t i = 0; i < score.size(); i++)
+    priority_queue<int, vector<int>, greater<int>> HOF;
+    for(int i = 0; i < score.size(); i++)
     {
-        HOF.push_back(score[i]);
-        sort(HOF.begin(), HOF.end(), [](int a, int b){ return a > b; });
+        HOF.push(score[i]);
         if (HOF.size() > k)
         {
-            HOF.pop_back();
+            HOF.pop();
         }
-        int min = *min_element(HOF.begin(), HOF.end());
-        answer.push_back(min);
+        answer.push_back(HOF.top());
     }
-    
     return answer;
 }
