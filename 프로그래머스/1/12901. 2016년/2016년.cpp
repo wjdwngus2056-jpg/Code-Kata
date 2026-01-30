@@ -13,7 +13,7 @@ string solution(int a, int b) {
     {
         realday += month[i];
     }
-    realday += b-1;
-    answer = day[realday%7];
+    realday += b;
+    answer = day[(realday-1)%7];
     return answer;
 }
