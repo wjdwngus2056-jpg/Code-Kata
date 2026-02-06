@@ -13,25 +13,25 @@ int solution(vector<string> babbling) {
         bool check_canspeak = true;
         for (int i = 0; i < s.length(); i++)
         {
-            if (s.substr(i, 3) == "aya" && check != 0)
+            if (s.substr(i, speakable[0].length()) == speakable[0] && check != 0)
             {
                 check = 0;
-                i += 2;
+                i += speakable[0].length()-1;
             }
-            else if (s.substr(i, 2) == "ye" && check != 1)
+            else if (s.substr(i, speakable[1].length()) == speakable[1] && check != 1)
             {
                 check = 1;
-                i += 1;
+                i += speakable[1].length()-1;
             }
-            else if (s.substr(i, 3) == "woo" && check != 2)
+            else if (s.substr(i, speakable[2].length()) == speakable[2] && check != 2)
             {
                 check = 2;
-                i += 2;
+                i += speakable[2].length()-1;
             }
-            else if (s.substr(i, 2) == "ma" && check != 3)
+            else if (s.substr(i, speakable[3].length()) == speakable[3] && check != 3)
             {
                 check = 3;
-                i += 1;
+                i += speakable[3].length()-1;
             }
             else
             {
