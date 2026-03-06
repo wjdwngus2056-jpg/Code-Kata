@@ -2,25 +2,20 @@
 
 using namespace std;
 
-long long solution(int num)
-{  
-    if (num == 0)
-    {
-        return 1;
-    }
+int main() {
     
-    return num * solution(num-1);
-}
-
-int main()
-{
     ios::sync_with_stdio(false);
     cin.tie(NULL);
+    cout.tie(NULL);
     
-    int N;
-    cin >> N;
+    int num = 0;
+    long long sum = 1;
+    cin >> num;
     
-    cout << solution(N);
+    for(int i = num; i > 0; i--) {
+        sum*=i;
+    }
     
+    cout << sum;
     return 0;
 }
